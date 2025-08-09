@@ -1,19 +1,11 @@
-def permutate(curr, arr, i):
-	# how to use DFS - stack?
-	print (curr)
-	ans = [ [*curr, x] for x in arr[i:]]
-	print(ans)
-	#permutate(ans, arr, i+1)
-
-def permutate2(arr):
+def subsets(arr):
 	# BFS - queue used
-	subset=[ [] ]
-	print("="*30)
-	print(len(subset), subset)
-
 	# sort the list to handle duplicate
 	arr = sorted(arr)
 	prev=0
+
+	subset=[ [] ]
+	print(len(subset), subset)
 
 
 	for x in arr:
@@ -24,7 +16,21 @@ def permutate2(arr):
 		print('\t', ans)
 		subset = [*subset, *ans]
 		prev=x
-	print(len(subset), subset)
+	return subset
 
-permutate2([1,5,3, 4]) 
-permutate2([1,5,3, 1]) 
+def test(arr):
+	print("="*30)
+	print(arr)
+	ans = subsets(arr)
+	print(ans)
+
+	print("-"*30)
+	ans3 = [ s for s in ans if len(s)==3 ]
+	print(len(ans3), ans3)
+	print("-"*30)
+	return len(ans)
+
+
+print(test([1,5,3, 4]))
+print(test([1,5,3, 1]))
+print(test([1,5,3, 4, 2]))
