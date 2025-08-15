@@ -77,3 +77,4 @@ if True: #make it False to disable test cases
 	test(43, [1,1,1,1,1,2,2,2,3])
 	test(8, [1,1,1,1])
 	test(28, [5,4,3,2])
+test(5,[1,1,1])
